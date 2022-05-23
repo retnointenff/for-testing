@@ -52,9 +52,9 @@ class Scan_Factory extends CI_Controller
 				if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
 					throw new \Exception('invalid image type');
 				}
+
 				$files = str_replace(' ', '+', $files);
 				$files = base64_decode($files);
-
 				if ($files === false) {
 					throw new \Exception('base64_decode failed');
 				}
@@ -67,12 +67,12 @@ class Scan_Factory extends CI_Controller
 			if (!file_exists($path)) {
 				mkdir($path, 0777, true);
 			}
+
 			file_put_contents("${path}{$file_name}.{$type}", $files);
 
 			if (file_exists("${path}{$file_name}.{$type}")) {
-				// array_push($arrayImages, "${path}{$file_name}.{$type}");
+				echo json_encode("{$file_name}.{$type}");
 			}
-			echo json_encode("{$file_name}.{$type}");
 		} else {
 			echo json_encode('file not upload');
 		}

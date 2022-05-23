@@ -91,10 +91,6 @@
         }
     }
 
-    console.log(imgVal);
-    let csrf_token_name = '<?= $csrf_token_name ?>';
-    let csrf_hash = '<?= $csrf_hash ?>';
-
     $("#submitForm").on('click', () => {
         var reader = new FileReader();
         // this function is triggered once a call to readAsDataURL returns
@@ -108,19 +104,19 @@
             for (var value of fd.values()) {
                 console.log(value);
             }
-            // $.ajax({
-            //     type: 'POST',
-            //     url: '<?= $base_url . $page . '/uploadFileScan' ?>',
-            //     data: fd,
-            //     processData: false,
-            //     contentType: false
-            // }).done(function(data) {
-            //     // print the output from the upload.php script
-            //     console.log(JSON.parse(data));
-            //     // $('#scanOutput').attr("src", "");
-            //     // $('#outputUpload').css("display", "block");
-            //     // $('#outputUpload').attr("src", JSON.parse(data));
-            // });
+            $.ajax({
+                type: 'POST',
+                url: '<?= $base_url . $page . '/uploadFileScan' ?>',
+                data: fd,
+                processData: false,
+                contentType: false
+            }).done(function(data) {
+                // print the output from the upload.php script
+                console.log((data));
+                // $('#scanOutput').attr("src", "");
+                // $('#outputUpload').css("display", "block");
+                // $('#outputUpload').attr("src", JSON.parse(data));
+            });
         };
         // trigger the read from the reader...
         reader.readAsDataURL(imgVal);
