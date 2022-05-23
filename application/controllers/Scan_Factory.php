@@ -72,7 +72,7 @@ class Scan_Factory extends CI_Controller
 			if (file_exists("${path}{$file_name}.{$type}")) {
 				// array_push($arrayImages, "${path}{$file_name}.{$type}");
 			}
-			echo json_encode(base_url() . str_replace('./', '', $path) . "{$file_name}.{$type}");
+			echo json_encode("{$file_name}.{$type}");
 		} else {
 			echo json_encode('file not upload');
 		}
