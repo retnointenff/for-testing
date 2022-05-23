@@ -113,9 +113,9 @@
             }).done(function(data) {
                 // print the output from the upload.php script
                 console.log((data));
-                // $('#scanOutput').attr("src", "");
-                // $('#outputUpload').css("display", "block");
-                // $('#outputUpload').attr("src", JSON.parse(data));
+                $('#scanOutput').attr("src", "");
+                $('#outputUpload').css("display", "block");
+                $('#outputUpload').attr("src", "<?= base_url() ?>/storage/scan_doc/temp/" + JSON.parse(data));
             });
         };
         // trigger the read from the reader...
