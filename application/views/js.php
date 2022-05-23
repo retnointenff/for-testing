@@ -114,7 +114,12 @@
                 // print the output from the upload.php script
                 console.log((data));
                 $('#scanOutput').attr("src", "");
-                $('#outputUpload').css("display", "block");
+                var imgScale = {
+                    width: window.screen.width,
+                    height: window.screen.height * 0.5,
+                    display: "block"
+                };
+                $('#outputUpload').css(imgScale);
                 $('#outputUpload').attr("src", "<?= base_url() ?>/storage/scan_doc/temp/" + JSON.parse(data));
             });
         };

@@ -24,7 +24,7 @@
             <br />
 
             <img id="scanOutput"></img>
-            <iframe id="outputUpload" style="display: none;"></iframe>
+            <iframe id="outputUpload" style="display: none; width: 100%; height: 100%;"></iframe>
             <form id="form1" action="#" method="POST" enctype="multipart/form-data" target="_blank">
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" id="csrf" value="<?= $this->security->get_csrf_hash() ?>">
                 <input type="hidden" name="action" value="create">
