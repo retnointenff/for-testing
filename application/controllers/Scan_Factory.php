@@ -40,7 +40,7 @@ class Scan_Factory extends CI_Controller
 		$this->load->view('footer', $content_data);
 	}
 
-	public function uploadFileScan()
+	function uploadFileScan()
 	{
 		$data = $this->input->post();
 		if (isset($data['data'])) {
